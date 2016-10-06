@@ -5,6 +5,8 @@
 @color-danger: #FF0000;
 @color-divider: #EEEEEE;
 
+@menu-item-height: 150px;
+
 body {
   margin: 0;
 }
@@ -22,12 +24,31 @@ body {
     padding: 0;
     list-style: none;
     li {
-      padding: 0 20px;
-      line-height: 150px;
+      position: relative;
       border-bottom: 1px solid @color-divider;
+      font-size: 2em;
       &:active {
         color: #FFFFFF;
         background-color: lighten(@color-primary, 10%);
+      }
+      &.shop-catalog-mobile__item_width-sub-menu::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: @menu-item-height;
+        height: @menu-item-height;
+        line-height: @menu-item-height;
+        content: '\0203A';
+        font-size: 2em;
+        text-align: center;
+      }
+      a {
+        display: block;
+        margin: 0 @menu-item-height 0 0;
+        padding: 0 20px;
+        line-height: @menu-item-height;
+        color: @color-primary;
+        &:active { color: #FFFFFF; }
       }
     }
     ul {

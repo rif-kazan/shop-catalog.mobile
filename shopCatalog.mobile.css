@@ -16,13 +16,34 @@ body {
   list-style: none;
 }
 .shop-catalog-mobile ul li {
-  padding: 0 20px;
-  line-height: 150px;
+  position: relative;
   border-bottom: 1px solid #EEEEEE;
+  font-size: 2em;
 }
 .shop-catalog-mobile ul li:active {
   color: #FFFFFF;
   background-color: #128be4;
+}
+.shop-catalog-mobile ul li.shop-catalog-mobile__item_width-sub-menu::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  content: '\0203A';
+  font-size: 2em;
+  text-align: center;
+}
+.shop-catalog-mobile ul li a {
+  display: block;
+  margin: 0 150px 0 0;
+  padding: 0 20px;
+  line-height: 150px;
+  color: #0E6EB5;
+}
+.shop-catalog-mobile ul li a:active {
+  color: #FFFFFF;
 }
 .shop-catalog-mobile ul ul {
   display: none;
