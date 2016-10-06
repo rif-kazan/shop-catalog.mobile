@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+.shop-catalog-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.shop-catalog-mobile ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.shop-catalog-mobile ul li {
+  padding: 0 20px;
+  line-height: 150px;
+  border-bottom: 1px solid #EEEEEE;
+}
+.shop-catalog-mobile ul li:active {
+  color: #FFFFFF;
+  background-color: #128be4;
+}
+.shop-catalog-mobile ul ul {
+  display: none;
+}
