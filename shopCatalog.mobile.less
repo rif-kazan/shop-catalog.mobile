@@ -1,0 +1,37 @@
+@color-primary: #0E6EB5;
+@color-success: #FFF80D;
+@color-info: #740CE8;
+@color-warning: #E88A0C;
+@color-danger: #FF0000;
+@color-divider: #EEEEEE;
+
+body {
+  margin: 0;
+}
+
+.shop-catalog-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      padding: 0 20px;
+      line-height: 150px;
+      border-bottom: 1px solid @color-divider;
+      &:active {
+        color: #FFFFFF;
+        background-color: lighten(@color-primary, 10%);
+      }
+    }
+    ul {
+      display: none;
+    }
+  }
+}
