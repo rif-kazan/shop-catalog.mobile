@@ -11,9 +11,36 @@ body {
   margin: 0;
 }
 
+.header {
+  position: relative;
+  height: @menu-item-height;
+  line-height: @menu-item-height;
+  color: #FFFFFF;
+  background-color: @color-primary;
+  .header__back {
+    position: absolute;
+    left: 0;
+    width: @menu-item-height;
+    text-align: center;
+    font-size: 3em;
+    &:active {
+      background-color: lighten( @color-primary, 10% );
+      //background-color: red;
+    }
+  }
+  .header__title {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    left: @menu-item-height + 20;
+    font-size: 3em;
+  }
+}
+
 .shop-catalog-mobile {
   position: fixed;
-  top: 0;
+  top: @menu-item-height;
   right: 0;
   bottom: 0;
   left: 0;
@@ -26,7 +53,7 @@ body {
     li {
       position: relative;
       border-bottom: 1px solid @color-divider;
-      font-size: 2em;
+      font-size: 28px;
       &:active {
         color: #FFFFFF;
         background-color: lighten(@color-primary, 10%);
