@@ -1,29 +1,51 @@
 ( function () {
   'use strict';
 
-  let shopCatalogMobile = document.querySelector( '.shop-catalog-mobile' );
-  let headerBack = document.querySelector( '.header__back' );
-  let headerTitle = document.querySelector( '.header__title' );
+  var currentPath = [];
+  var shopCatalogMobile = document.querySelector( '.shop-catalog-mobile' );
+  var headerBack = document.querySelector( '.header__back' );
+  var headerTitle = document.querySelector( '.header__title' );
+
+  function reload ( path ) {
+    var title, data, index;
+    if ( path.length ) {
+      index = path.shift();
+      data = shopCatalog[index].sub;
+      title = shopCatalog[index].name;
+      while ( index = path.shift() ) {
+        title = data[index].name;
+        data = data[index].sub;
+      }
+    } else {
+      title = 'Каталог';
+      data = shopCatalog;
+    }
+    headerTitle.textContent = title;
+    shopCatalogMobile.innerHTML = '';
+    shopCatalogMobile.appendChild( renderMenu( data ) );
+  }
 
   function onBack () {
-    //todo подъем вверх или выход из каталога
-    headerTitle.textContent = 'Каталог';
+    if ( currentPath.length ) {
+      currentPath.pop();
+      reload( currentPath.slice() );
+    } else {
+      //todo hide catalog-menu
+    }
   }
 
   function onClick ( e ) {
-    let itemMenu = e.target.closest( '.shop-catalog-mobile__item_width-sub-menu' );
-    headerTitle.textContent = shopCatalog[itemMenu.dataset.path].name;
-    shopCatalogMobile.innerHTML = '';
-    shopCatalogMobile.appendChild( renderMenu( shopCatalog[itemMenu.dataset.path].sub, itemMenu.dataset.path ) );
+    currentPath.push( e.target.closest( '.shop-catalog-mobile__item_width-sub-menu' ).dataset.path );
+    reload( currentPath.slice() );
   }
 
-  function renderMenu ( data, path ) {
+  function renderMenu ( data ) {
     let container = document.createElement( 'ul' ), index = 0, li, a;
     for ( ;index < data.length; index++ ) {
       a = document.createElement( 'a' );
       a.textContent = data[index].name;
       li = document.createElement( 'li' );
-      li.dataset.path = path ? path + '-' + index : index;
+      li.dataset.path = index;
       li.appendChild( a );
       if ( data[index].sub ) {
         li.classList.add( 'shop-catalog-mobile__item_width-sub-menu' );
@@ -35,5 +57,6 @@
   }
 
   headerBack.addEventListener( 'click', onBack );
-  shopCatalogMobile.appendChild( renderMenu( shopCatalog ) );
+  reload( currentPath.slice() );
+
 } )();
