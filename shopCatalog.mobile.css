@@ -1,33 +1,45 @@
 body {
   margin: 0;
 }
-.header {
-  position: relative;
+.hide {
+  display: none;
+}
+.shop-catalog-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.shop-catalog-mobile .shop-catalog-mobile__back {
+  position: absolute;
+  left: 0;
+  width: 150px;
   height: 150px;
   line-height: 150px;
   color: #FFFFFF;
   background-color: #0E6EB5;
-}
-.header .header__back {
-  position: absolute;
-  left: 0;
-  width: 150px;
   text-align: center;
   font-size: 3em;
 }
-.header .header__back:active {
+.shop-catalog-mobile .shop-catalog-mobile__back:active {
   background-color: #128be4;
 }
-.header .header__title {
+.shop-catalog-mobile .shop-catalog-mobile__title {
   position: absolute;
   top: 0;
-  right: 20px;
+  right: 0;
   bottom: 0;
-  left: 170px;
+  left: 150px;
+  padding: 0 20px;
+  height: 150px;
+  line-height: 150px;
+  color: #FFFFFF;
+  background-color: #0E6EB5;
   font-size: 3em;
 }
-.shop-catalog-mobile {
-  position: fixed;
+.shop-catalog-mobile .shop-catalog-mobile__container {
+  position: absolute;
   top: 150px;
   right: 0;
   bottom: 0;
@@ -35,21 +47,21 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.shop-catalog-mobile ul {
+.shop-catalog-mobile .shop-catalog-mobile__container ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.shop-catalog-mobile ul li {
+.shop-catalog-mobile .shop-catalog-mobile__container ul li {
   position: relative;
   border-bottom: 1px solid #EEEEEE;
   font-size: 28px;
 }
-.shop-catalog-mobile ul li:active {
+.shop-catalog-mobile .shop-catalog-mobile__container ul li:active {
   color: #FFFFFF;
   background-color: #128be4;
 }
-.shop-catalog-mobile ul li.shop-catalog-mobile__item_width-sub-menu::after {
+.shop-catalog-mobile .shop-catalog-mobile__container ul li.shop-catalog-mobile__item_width-sub-menu::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -60,13 +72,13 @@ body {
   font-size: 2em;
   text-align: center;
 }
-.shop-catalog-mobile ul li a {
+.shop-catalog-mobile .shop-catalog-mobile__container ul li a {
   display: block;
   margin: 0 150px 0 0;
   padding: 0 20px;
   line-height: 150px;
   color: #0E6EB5;
 }
-.shop-catalog-mobile ul li a:active {
+.shop-catalog-mobile .shop-catalog-mobile__container ul li a:active {
   color: #FFFFFF;
 }
